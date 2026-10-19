@@ -51,7 +51,7 @@ assign_stmt : ident '=' expr ;
 
 /* if_stmt rules go here */
 
-if_stmt : /* FILL IN FOR STEP 1 */ ;
+if_stmt : 'if' '(' cond ')' '{' statements '}' | 'if' '(' cond ')' '{' statements '}' 'else' '{' statements '}' ;
 
 while_stmt : 'while' '(' cond ')' '{' statements '}' ;
 	 
@@ -67,11 +67,11 @@ unaryminus_expr : '-' expr ;
 		 
 /* This is left recursive, but ANTLR will clean this up */ 
 expr : term
-     | expr /* FILL IN ONE OF addop OR mulop FOR STEP 1 */ term ;
+     | expr addop term ;
 	 
 /* This is left recursive, but ANTLR will clean this up */
 term : primary
-     | term /* FILL IN ONE OF addop OR mulop FOR STEP 1 */ primary ;
+     | term mulop primary ;
 	   	   
 cond : expr cmpop expr ;
 
