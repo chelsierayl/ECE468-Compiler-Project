@@ -7,5 +7,5 @@ clean:
 	/bin/rm -rf MicroCParser.cpp MicroCParser.h
 
 compiler:
-	#antlr -Dlanguage=Cpp MicroC.g4 
+	antlr -Dlanguage=Cpp MicroC.g4 
 	g++ -std=c++20 -lantlr4-runtime main.cpp MicroCLexer.cpp MicroCParser.cpp MicroCListener.cpp MicroCBaseListener.cpp -lantlr4-runtime -o compiler
