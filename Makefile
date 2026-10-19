@@ -7,5 +7,6 @@ clean:
 	/bin/rm -rf MicroCParser.cpp MicroCParser.h
 
 compiler:
-	antlr -Dlanguage=Cpp MicroC.g4 #java -jar antlr-4.13.2-complete.jar -Dlanguage=Cpp MicroC.g4
+	#antlr -Dlanguage=Cpp MicroC.g4 
+	java -jar antlr-4.13.2-complete.jar -Dlanguage=Cpp MicroC.g4
 	g++ -std=c++20 main.cpp -o compiler
